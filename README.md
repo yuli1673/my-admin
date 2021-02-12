@@ -1,29 +1,9 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-02-12 12:48:08
+ * @LastEditTime: 2021-02-12 18:38:51
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /my-admin/README.md
+-->
 # my-admin
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
