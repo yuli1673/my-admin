@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-12 22:09:34
- * @LastEditTime: 2021-02-15 01:31:46
+ * @LastEditTime: 2021-02-15 21:43:38
  * @LastEditors: Please set LastEditors
  * @Description: 左侧导航栏
  * @FilePath: /my-admin/src/layout/components/TheNav.vue
@@ -82,12 +82,12 @@ export default {
 
 <style lang="stylus" scoped>
 .the-nav
-    position fixed
-    bottom 0
-    top 0
-    width 220px
-    overflow hidden
-    transition-duration .3s
-  .the-nav-menu
-    border none
+  position fixed
+  bottom 0
+  top 0
+  width 220px
+  overflow hidden
+  transition-duration 0.3s
+.the-nav-menu
+  border none
 </style>

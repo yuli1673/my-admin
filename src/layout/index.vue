@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-01-30 23:53:03
- * @LastEditTime: 2021-02-15 21:24:06
+ * @LastEditTime: 2021-02-15 21:43:56
  * @LastEditors: Please set LastEditors
  * @Description: layout 布局结构
  * @FilePath: /vue-admin-template/src/layout/index.vue
@@ -73,7 +73,7 @@ export default {
     background-color #545c64
   .main-container
     margin-left 220px
-    transition-duration .3s
+    transition-duration 0.3s
   // 迷你侧边栏
   .the-nav-min
     width 65px
