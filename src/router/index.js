@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 12:47:55
- * @LastEditTime: 2021-02-12 23:37:45
+ * @LastEditTime: 2021-02-14 19:42:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/router/index.js
@@ -14,15 +14,24 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "主页",
     component: layout,
-    icon: "el-icon-eleme"
+    icon: "el-icon-eleme",
+    redirect: "/home",
+    children: [
+      {
+        path: "home",
+        name: "Home",
+        component: () => import("../views/Home.vue")
+      }
+    ]
   },
   {
     path: "/about",
     name: "About",
     icon: "el-icon-info",
     component: layout,
+    redirect: "/about/abc",
     children: [
       {
         path: "ab",
@@ -30,6 +39,7 @@ const routes = [
         component: () => import("../views/about/index.vue")
       },
       {
+        hidden: true,
         path: "abc",
         name: "ABC",
         component: () => import("../views/about/abc.vue")
@@ -41,7 +51,14 @@ const routes = [
     name: "Login",
     component: () => import("../views/Login.vue"),
     icon: "el-icon-present"
-  }
+  },
+  {
+    path: "/404",
+    component: () => import("@/views/404"),
+    hidden: true
+  },
+  // 404
+  { path: "*", redirect: "/404", hidden: true }
 ];
 
 const router = new VueRouter({
