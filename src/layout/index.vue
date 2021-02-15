@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-01-30 23:53:03
- * @LastEditTime: 2021-02-15 18:47:45
+ * @LastEditTime: 2021-02-15 21:03:28
  * @LastEditors: Please set LastEditors
  * @Description: layout 布局结构
  * @FilePath: /vue-admin-template/src/layout/index.vue
@@ -17,7 +17,7 @@
     />
     <div class="main-container">
       <!-- <div :class="{ 'fixed-header': fixedHeader }"> -->
-      <!-- <the-header /> -->
+      <!-- <the-header :class="{ 'fixed-header': fixedHeader }"/> -->
       <!-- </div> -->
       <!-- 子路由 主体 -->
       <the-main />
@@ -43,11 +43,17 @@ export default {
     }),
     currentRouters() {
       let currentRouter = this.$router.options.routes;
-      // currentRouter = currentRouter.filter(v => v.path !== "/about");
       return currentRouter;
     }
   },
-  watch: {},
+  watch: {
+    device(n) {
+      console.log("当前是什么设备", n);
+    },
+    isCollapse(n) {
+      console.log("当前是否卷侧边栏", n);
+    }
+  },
   methods: {},
   data() {
     return {
@@ -65,8 +71,12 @@ export default {
   position relative
   .the-nav
     background-color #545c64
-  .the-nav-min
-    width 64px
   .main-container
     margin-left 220px
+    transition-duration .3s
+  // 迷你侧边栏
+  .the-nav-min
+    width 65px
+    & + .main-container
+      margin-left 65px
 </style>

@@ -1,7 +1,7 @@
 /*
  * @Author: josen
  * @Date: 2021-02-12 14:19:15
- * @LastEditTime: 2021-02-15 01:09:20
+ * @LastEditTime: 2021-02-15 18:57:18
  * @LastEditors: Please set LastEditors
  * @Description: 应用的组件状态
  * @FilePath: /my-admin/src/store/modules/app.js
@@ -15,8 +15,6 @@ export default {
     theNav: {
       // 是否收缩
       isCollapse: false
-      // 是否隐藏
-      // isWithout: false
     }
   },
   mutations: {
@@ -27,12 +25,7 @@ export default {
     // 缩 / 放侧边栏
     SET_COLLAPSE_NAV(state, is) {
       state.theNav.isCollapse = is;
-      console.log("设置 collapse", is);
     }
-    // 关 / 开 侧边栏
-    // SET_WITHOUT_NAV(state, is) {
-    //   state.isWithout = is;
-    // }
   },
   actions: {}
 };
