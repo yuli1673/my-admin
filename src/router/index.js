@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 12:47:55
- * @LastEditTime: 2021-02-14 19:42:32
+ * @LastEditTime: 2021-02-16 22:25:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/router/index.js
@@ -47,10 +47,10 @@ const routes = [
     ]
   },
   {
+    hidden: true,
     path: "/login",
     name: "Login",
-    component: () => import("../views/Login.vue"),
-    icon: "el-icon-present"
+    component: () => import("../views/Login.vue")
   },
   {
     path: "/404",
@@ -64,7 +64,5 @@ const routes = [
 const router = new VueRouter({
   routes
 });
-// router.beforeEach((to, from, next) => {
 
-// });
 export default router;
