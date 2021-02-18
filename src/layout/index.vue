@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-01-30 23:53:03
- * @LastEditTime: 2021-02-15 21:03:28
+ * @LastEditTime: 2021-02-18 18:34:31
  * @LastEditors: Please set LastEditors
  * @Description: layout 布局结构
  * @FilePath: /vue-admin-template/src/layout/index.vue
@@ -71,6 +71,7 @@ export default {
   position relative
   .the-nav
     background-color #545c64
+    z-index: 1;
   .main-container
     margin-left 220px
     transition-duration .3s

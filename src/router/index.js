@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 12:47:55
- * @LastEditTime: 2021-02-16 22:25:06
+ * @LastEditTime: 2021-02-18 16:47:40
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/router/index.js
@@ -22,7 +22,7 @@ const routes = [
       {
         path: "home",
         name: "Home",
-        component: () => import("../views/Home.vue")
+        component: () => import("../views/home")
       }
     ]
   },

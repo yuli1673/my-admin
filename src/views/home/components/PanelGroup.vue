@@ -1,0 +1,104 @@
+<!--
+ * @Author: josen
+ * @Date: 2021-02-18 16:59:33
+ * @LastEditTime: 2021-02-18 20:36:44
+ * @LastEditors: Please set LastEditors
+ * @Description: 面板
+ * @FilePath: /my-admin/src/views/home/components/ThePanelGroup.vue
+-->
+<template>
+  <div class="panel-group">
+    <div
+      class="item"
+      v-for="(item, index) in panel"
+      :key="index"
+      @click="clickPanel(item)"
+    >
+      <img :src="item.src" class="item-img" />
+      <h3>
+        <p class="item-text">{{ item.label }}</p>
+        <p class="item-text">$ {{ item.value }}</p>
+      </h3>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      panel: [
+        {
+          label: "Visits",
+          value: "10394",
+          src: require("@/assets/logo.png")
+        },
+        {
+          label: "Messages",
+          value: "194845",
+          src: require("@/assets/logo.png")
+        },
+        {
+          label: "Purchases",
+          value: "839204",
+          src: require("@/assets/logo.png")
+        },
+        {
+          label: "Shoppings",
+          value: "9378475",
+          src: require("@/assets/logo.png")
+        }
+      ]
+    };
+  },
+  methods: {
+    clickPanel(panel) {
+      this.$emit("clickPanel", panel);
+    }
+  },
+  computed: {
+    device() {
+      return this.$store.state.app.device;
+    }
+  }
+};
+</script>
+
+<style lang="stylus" scoped>
+.panel-group
+  margin 20px
+  display flex
+  justify-content space-between
+  .item
+    padding 10px
+    margin 10px 0
+    background-color white
+    display flex
+    align-items center
+    justify-content space-between
+    transition-duration 0.5s
+    cursor pointer
+    width 20%
+    &:hover
+      box-shadow 5px 8px 30px #ccc
+      transform translateY(-5px)
+      background-color rgba(0, 0, 0, 0.5)
+      color white
+    .item-img
+      width 80px
+      height 80px
+    h3
+      overflow hidden
+      .item-text
+        overflow hidden
+        white-space nowrap
+        text-overflow ellipsis
+@media screen and (max-width 996px)
+  .panel-group
+    display block
+    .item
+      padding 10px
+      margin-right 0
+      width calc(100% - 20px)
+      float none
+</style>
