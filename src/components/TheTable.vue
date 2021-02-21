@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-21 22:25:14
- * @LastEditTime: 2021-02-21 23:48:54
+ * @LastEditTime: 2021-02-21 23:56:19
  * @LastEditors: Please set LastEditors
  * @Description: 表格
  * @FilePath: /my-admin/src/components/TheTable.vue
@@ -79,18 +79,29 @@ export default {
      * @param {Array} list 有多少个button
      * ?在 list 中每一项的数据
      *  @param {String} label 按钮名称
-     *  @param {String} type
-          <el-button type="primary">主要按钮</el-button>
-          <el-button type="success">成功按钮</el-button>
-          <el-button type="info">信息按钮</el-button>
-          <el-button type="warning">警告按钮</el-button>
-          <el-button type="danger">危险按钮</el-button>
+     *  @param {String} type 
+          primary 主要按钮 
+          success 成功按钮 
+          info 信息按钮
+          warning 警告按钮
+          danger 危险按钮
      *  @param {Function} callFun callback 方法
      *  @param {String} icon 饿了么图标
      */
     operates: {
       type: Object,
-      default: null,
+      default: () => ({
+        show: true,
+        minWidth: "200",
+        fixed: null,
+        list: [
+          {
+            type: "primary",
+            icon: "el-icon-search",
+            callFun() {}
+          }
+        ]
+      }),
       required: true
     }
   }
