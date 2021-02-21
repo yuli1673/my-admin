@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-14 18:24:42
- * @LastEditTime: 2021-02-14 18:27:00
+ * @LastEditTime: 2021-02-21 22:39:19
  * @LastEditors: Please set LastEditors
  * @Description: 404 page
  * @FilePath: /my-admin/src/views/404.vue
@@ -12,7 +12,6 @@
 
 <script>
 export default {
-  name: "404",
   computed: {}
 };
 </script>

@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-18 16:59:33
- * @LastEditTime: 2021-02-18 20:36:44
+ * @LastEditTime: 2021-02-18 23:59:10
  * @LastEditors: Please set LastEditors
  * @Description: 面板
  * @FilePath: /my-admin/src/views/home/components/ThePanelGroup.vue
