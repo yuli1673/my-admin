@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-12 12:47:55
- * @LastEditTime: 2021-02-21 23:21:30
+ * @LastEditTime: 2021-02-21 23:46:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/views/About.vue
@@ -51,13 +51,19 @@ export default {
           fixed: false
         }
       ],
-      operates: [
-        {
-          label: "1",
-          type: "",
-          fun: (index, row) => this.fun1(index, row)
-        }
-      ]
+      operates: {
+        show: false,
+        minWidth: "200",
+        fixed: null,
+        list: [
+          {
+            icon: "",
+            label: "1",
+            type: "",
+            callFun: (index, row) => this.fun1(index, row)
+          }
+        ]
+      }
     };
   },
   methods: {
