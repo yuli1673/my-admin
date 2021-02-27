@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-12 12:47:55
- * @LastEditTime: 2021-02-27 23:32:24
+ * @LastEditTime: 2021-02-28 00:34:44
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/views/Home.vue
@@ -9,7 +9,7 @@
 <template>
   <div class="home">
     <panel-group @clickPanel="clickPanel" />
-    <chart-line :options="options" />
+    <chart-line class="chart-line" :options="options" />
     <!-- 三个联排的 e-charts -->
     <div class="chart-row">
       <chart-pie class="chart-row_item" />
@@ -79,6 +79,8 @@ export default {
 .home
   padding 20px
   background-color #f0f2f5
+  .chart-line
+    margin 30px 0
   .chart-row
     margin 30px 0
     display flex

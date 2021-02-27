@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-27 22:53:57
- * @LastEditTime: 2021-02-27 23:32:05
+ * @LastEditTime: 2021-02-28 00:33:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/components/ECharts/ChartPie.vue
