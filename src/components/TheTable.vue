@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-21 22:25:14
- * @LastEditTime: 2021-02-21 23:56:19
+ * @LastEditTime: 2021-02-23 23:55:17
  * @LastEditors: Please set LastEditors
  * @Description: 表格
  * @FilePath: /my-admin/src/components/TheTable.vue
@@ -9,16 +9,33 @@
 <template>
   <div class="">
     <el-table :data="tableData">
-      <template v-for="item in columns">
+      <!-- 多选框 -->
+      <el-table-column type="selection" width="55"> </el-table-column>
+      <!-- 内容区域 -->
+      <template v-for="(item, index) in columns">
         <el-table-column
-          :key="item.prop"
+          :key="item.prop + index"
           :prop="item.prop"
           :label="item.label"
           :min-width="item.minWidth"
           :fixed="item.fixed"
           show-overflow-tooltip
-        ></el-table-column>
+        >
+          <template #default="{row}">
+            <!-- slot -->
+            <slot v-if="item.type === 'slot'" :row="row[item.prop]" />
+            <!-- 标签 tag -->
+            <el-tag v-else-if="item.type === 'tag'">
+              {{ row[item.prop] }}
+            </el-tag>
+            <!-- 默认显示 -->
+            <span v-else>
+              {{ row[item.prop] }}
+            </span>
+          </template>
+        </el-table-column>
       </template>
+      <!-- 可操作的按钮 -->
       <el-table-column
         label="操作"
         align="center"
@@ -91,7 +108,7 @@ export default {
     operates: {
       type: Object,
       default: () => ({
-        show: true,
+        show: false,
         minWidth: "200",
         fixed: null,
         list: [
@@ -101,8 +118,7 @@ export default {
             callFun() {}
           }
         ]
-      }),
-      required: true
+      })
     }
   }
 };

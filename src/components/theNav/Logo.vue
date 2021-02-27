@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-14 13:10:57
- * @LastEditTime: 2021-02-15 01:12:23
+ * @LastEditTime: 2021-02-28 00:13:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/layout/components/theNav/Logo.vue
@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     toggleNav() {
-      let is = !this.$store.state.app.theNav.isCollapse;
+      let is = !this.isCollapse;
       this.$store.commit("app/SET_COLLAPSE_NAV", is);
     }
   },
@@ -42,8 +42,9 @@ export default {
   justify-content center
   align-items center
   height 50px
+  cursor pointer
   .logo-img
-    height: 40px;
+    height 40px
     width 40px
   .logo-title
     color white

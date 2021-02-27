@@ -1,7 +1,7 @@
 /*
  * @Author: josen
  * @Date: 2021-02-14 23:17:45
- * @LastEditTime: 2021-02-16 20:45:25
+ * @LastEditTime: 2021-02-27 23:45:55
  * @LastEditors: Please set LastEditors
  * @Description: 监听屏幕的大小情况
     use $_ for mixins properties
@@ -49,7 +49,8 @@ export default {
       if (!document.hidden) {
         const isMobile = this.$_isMobile();
         store.commit("app/TOGGLE_DEVICE", isMobile ? "mobile" : "pc");
-        store.commit("app/SET_COLLAPSE_NAV", isMobile);
+        // 移动端隐藏 pc可以不隐藏
+        if (isMobile) store.commit("app/SET_COLLAPSE_NAV", true);
       }
     }
   }

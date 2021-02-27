@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-12 12:47:55
- * @LastEditTime: 2021-02-19 00:00:57
+ * @LastEditTime: 2021-02-27 23:32:24
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/views/Home.vue
@@ -9,7 +9,13 @@
 <template>
   <div class="home">
     <panel-group @clickPanel="clickPanel" />
-    <line-echart :options="options" />
+    <chart-line :options="options" />
+    <!-- 三个联排的 e-charts -->
+    <div class="chart-row">
+      <chart-pie class="chart-row_item" />
+      <chart-radar class="chart-row_item" />
+      <chart-bar class="chart-row_item" />
+    </div>
   </div>
 </template>
 
@@ -22,7 +28,10 @@ export default {
   components: {
     // HelloWorld
     PanelGroup: () => import("./components/PanelGroup"),
-    LineEchart: () => import("./components/LineEchart.vue")
+    ChartLine: () => import("@/components/ECharts/ChartLine"),
+    ChartPie: () => import("@/components/ECharts/ChartPie.vue"),
+    ChartRadar: () => import("@/components/ECharts/ChartRadar.vue"),
+    ChartBar: () => import("@/components/ECharts/ChartBar.vue")
   },
   data() {
     return {
@@ -70,4 +79,13 @@ export default {
 .home
   padding 20px
   background-color #f0f2f5
+  .chart-row
+    margin 30px 0
+    display flex
+    justify-content space-between
+    .chart-row_item
+      width 30%
+      padding 10px
+      background-color white
+      height 400px
 </style>

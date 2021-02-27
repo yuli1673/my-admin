@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-18 16:59:33
- * @LastEditTime: 2021-02-18 23:59:10
+ * @LastEditTime: 2021-02-27 16:17:37
  * @LastEditors: Please set LastEditors
  * @Description: 面板
  * @FilePath: /my-admin/src/views/home/components/ThePanelGroup.vue
@@ -66,7 +66,6 @@ export default {
 
 <style lang="stylus" scoped>
 .panel-group
-  margin 20px
   display flex
   justify-content space-between
   .item

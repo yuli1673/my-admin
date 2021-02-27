@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-12 12:47:55
- * @LastEditTime: 2021-02-21 23:46:47
+ * @LastEditTime: 2021-02-23 23:57:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/views/About.vue
@@ -9,11 +9,13 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <the-table
-      :table-data="tableData"
-      :columns="columns"
-      :operates="operates"
-    />
+    <the-table :table-data="tableData" :columns="columns" :operates="operates">
+      <template #default="{row}">
+        <div>
+          {{ row }}
+        </div>
+      </template>
+    </the-table>
   </div>
 </template>
 
@@ -28,7 +30,7 @@ export default {
         {
           a: "123",
           b: 321,
-          c: 456
+          c: { c: 321 }
         }
       ],
       columns: [
@@ -36,23 +38,21 @@ export default {
           prop: "a",
           label: "a",
           minWidth: "500",
-          fixed: false
+          type: "tag"
         },
         {
           prop: "b",
           label: "b",
-          minWidth: "500",
-          fixed: false
+          minWidth: "500"
         },
         {
           prop: "c",
           label: "c",
-          minWidth: "500",
-          fixed: false
+          type: "slot"
         }
       ],
       operates: {
-        show: false,
+        show: true,
         minWidth: "200",
         fixed: null,
         list: [
