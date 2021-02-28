@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 12:47:55
- * @LastEditTime: 2021-02-21 22:41:34
+ * @LastEditTime: 2021-02-28 16:50:10
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/router/index.js
@@ -23,6 +23,20 @@ const routes = [
         path: "home",
         name: "Home",
         component: () => import("../views/home")
+      }
+    ]
+  },
+  {
+    path: "/file",
+    name: "文档",
+    component: layout,
+    icon: "el-icon-document",
+    redirect: "/file/index",
+    children: [
+      {
+        path: "index",
+        name: "file",
+        component: () => import("../views/File")
       }
     ]
   },

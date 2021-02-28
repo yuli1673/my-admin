@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-27 23:17:17
- * @LastEditTime: 2021-02-27 23:44:46
+ * @LastEditTime: 2021-02-28 15:20:16
  * @LastEditors: Please set LastEditors
  * @Description: 条状图
  * @FilePath: /my-admin/src/components/ECharts/ChartBar.vue
