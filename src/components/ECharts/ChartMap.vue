@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-28 14:22:08
- * @LastEditTime: 2021-02-28 21:48:52
+ * @LastEditTime: 2021-03-01 01:36:01
  * @LastEditors: Please set LastEditors
  * @Description: 地图
  * @FilePath: /my-admin/src/components/ECharts/ChartMap.vue
@@ -11,9 +11,8 @@
 </template>
 
 <script>
-import * as echarts from "echarts";
-// import "echarts/map/js/china"; // 引入中国地图数据
-
+import echarts from "echarts";
+import "echarts/map/js/china";
 import resize from "@/mixin/ResizeEChart";
 export default {
   mixins: [resize],
@@ -28,36 +27,40 @@ export default {
     return {
       myChart: null,
       option: {
-        geo: {
-          // 这个是重点配置区
-          map: "china", // 表示中国地图
-          roam: true,
-          zoom: 2,
-          label: {
-            normal: {
-              show: true // 是否显示对应地名
-            }
-          }
-        },
         title: {
-          text: "设备分布 - 地图",
-          subtext: "cncr",
-          // sublink: "http://www.pm25.in",
+          text: "全国主要城市空气质量 - 百度地图",
+          subtext: "data from PM25.in",
+          sublink: "http://www.pm25.in",
           left: "center"
         },
         tooltip: {
           trigger: "item"
         },
+        geo: {
+          map: "china",
+          zoom: 1
+        },
         series: [
           {
-            name: "销量",
-            type: "effectScatter",
+            name: "pm2.5",
             coordinateSystem: "geo",
+            type: "scatter",
             data: [
-              { name: "海门", value: [121.15, 31.89, 90] },
-              { name: "鄂尔多斯", value: [109.781327, 39.608266, 120] },
-              { name: "招远", value: [120.38, 37.35, 142] },
-              { name: "舟山", value: [122.207216, 29.985295, 123] }
+              {
+                name: "岳阳",
+                value: [113.09, 29.37, 10]
+              }
+            ]
+          },
+          {
+            name: "Top 5",
+            coordinateSystem: "geo",
+            type: "effectScatter",
+            data: [
+              {
+                name: "衢州",
+                value: [118.88, 28.97, 9]
+              }
             ]
           }
         ]
@@ -91,7 +94,6 @@ export default {
 
 <style lang="stylus" scoped>
 .chart-map
-  padding 20px
   background-color white
   height 500px
 </style>
