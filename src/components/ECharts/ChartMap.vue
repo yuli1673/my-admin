@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-28 14:22:08
- * @LastEditTime: 2021-02-28 16:15:52
+ * @LastEditTime: 2021-02-28 21:48:52
  * @LastEditors: Please set LastEditors
  * @Description: 地图
  * @FilePath: /my-admin/src/components/ECharts/ChartMap.vue
@@ -12,7 +12,7 @@
 
 <script>
 import * as echarts from "echarts";
-import "echarts/map/js/china"; // 引入中国地图数据
+// import "echarts/map/js/china"; // 引入中国地图数据
 
 import resize from "@/mixin/ResizeEChart";
 export default {

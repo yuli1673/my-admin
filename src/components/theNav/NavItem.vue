@@ -1,19 +1,27 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-12 22:18:58
- * @LastEditTime: 2021-02-15 01:17:29
+ * @LastEditTime: 2021-02-28 23:38:51
  * @LastEditors: Please set LastEditors
- * @Description: 遍历的每一项 路由子集
+ * @Description: 这里注意不能使用div包裹，因为menu的标签很多是li，不能使用别的标签，所以使用component
+    遍历的每一项 路由子集
  * @FilePath: /my-admin/src/layout/components/theNav/NavItem.vue
 -->
 <template>
-  <!-- 没有子集 -->
+  <!-- 有 1 个 or 没有子集 -->
   <el-menu-item :index="path" v-if="hasOnlyChildren(router)">
     <i :class="router.icon" />
     <span>{{ router.name }}</span>
   </el-menu-item>
-  <!-- 有子集 -->
-  <el-submenu :index="path" v-else class="submenu">
+  <!-- 有 2 or 多个子集 -->
+  <!-- 这个属性避免路由（小侧边栏时） hover 报错 :popper-append-to-body="false" -->
+  <!-- https://blog.csdn.net/qq_34172153/article/details/105177925 -->
+  <el-submenu
+    :index="path"
+    v-else
+    class="submenu"
+    :popper-append-to-body="false"
+  >
     <template slot="title">
       <i :class="router.icon"></i>
       <span slot="title">{{ router.name }}</span>
@@ -51,9 +59,7 @@ export default {
      * @return {Boolean} true 只有一个子集 ；false 有多个子集
      */
     hasOnlyChildren(router = {}) {
-      if ("children" in router && router.children.length > 1) {
-        return false;
-      }
+      if ("children" in router && router.children.length > 1) return false;
       return true;
     }
   },

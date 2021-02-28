@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-12 22:09:34
- * @LastEditTime: 2021-02-16 21:54:28
+ * @LastEditTime: 2021-02-28 23:17:35
  * @LastEditors: Please set LastEditors
  * @Description: 左侧导航栏
  * @FilePath: /my-admin/src/layout/components/TheNav.vue
@@ -14,7 +14,7 @@
       :text-color="textColor"
       :active-text-color="activeTextColor"
       class="the-nav-menu"
-      :default-active="activePath"
+      default-active="/"
       :collapse="isCollapse"
       router
     >
@@ -73,11 +73,22 @@ export default {
     },
     // 当前激活的对象
     activePath() {
-      const route = this.$route;
-      let { path, redirectedFrom } = route;
+      let { path = "/", redirectedFrom = "/" } = this.$route;
       // 判断是否有重定向
       if (redirectedFrom) path = redirectedFrom;
+      console.log("当前路由", path);
       return path;
+    }
+  },
+  methods: {
+    /**
+     * @description: 是否只有一个子集
+     * @param {Object} router 路由对象
+     * @return {Boolean} true 只有一个子集 ；false 有多个子集
+     */
+    hasOnlyChildren(router = {}) {
+      if ("children" in router && router.children.length > 1) return false;
+      return true;
     }
   },
   mounted() {}

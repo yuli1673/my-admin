@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-27 23:09:57
- * @LastEditTime: 2021-02-27 23:44:27
+ * @LastEditTime: 2021-02-28 21:52:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/components/ECharts/ChartRadar.vue
@@ -29,14 +29,6 @@ export default {
           data: ["预算分配", "实际开销"]
         },
         radar: {
-          name: {
-            textStyle: {
-              color: "#fff",
-              backgroundColor: "#999",
-              borderRadius: 3,
-              padding: [3, 5]
-            }
-          },
           indicator: [
             { name: "销售", max: 6500 },
             { name: "管理", max: 16000 },

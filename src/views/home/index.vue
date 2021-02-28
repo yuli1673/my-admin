@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-12 12:47:55
- * @LastEditTime: 2021-02-28 16:34:18
+ * @LastEditTime: 2021-02-28 21:50:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/views/Home.vue
@@ -9,7 +9,7 @@
 <template>
   <div class="home">
     <panel-group @clickPanel="clickPanel" />
-    <chart-map class="chart-map" />
+    <!-- <chart-map class="chart-map" /> -->
     <!-- 三个联排的 e-charts -->
     <div class="chart-row">
       <chart-pie class="chart-row_item" />
@@ -32,8 +32,8 @@ export default {
     ChartLine: () => import("@/components/ECharts/ChartLine"),
     ChartPie: () => import("@/components/ECharts/ChartPie.vue"),
     ChartRadar: () => import("@/components/ECharts/ChartRadar.vue"),
-    ChartBar: () => import("@/components/ECharts/ChartBar.vue"),
-    ChartMap: () => import("@/components/ECharts/ChartMap.vue")
+    ChartBar: () => import("@/components/ECharts/ChartBar.vue")
+    // ChartMap: () => import("@/components/ECharts/ChartMap.vue")
   },
   data() {
     return {};
