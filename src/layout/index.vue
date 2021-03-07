@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-01-30 23:53:03
- * @LastEditTime: 2021-03-07 12:07:20
+ * @LastEditTime: 2021-03-08 00:44:35
  * @LastEditors: Please set LastEditors
  * @Description: layout 布局结构
  * @FilePath: /vue-admin-template/src/layout/index.vue
@@ -14,7 +14,9 @@
       :showLogo="true"
       :isCollapse="isCollapse"
       :class="{ 'the-nav-min': isCollapse }"
+      :defaultActive="activeRouter"
     />
+    <!-- :defaultActive="$routers" -->
     <div class="main-container">
       <!-- <div :class="{ 'fixed-header': fixedHeader }"> -->
       <!-- <the-header :class="{ 'fixed-header': fixedHeader }"/> -->
@@ -41,6 +43,12 @@ export default {
       device: state => state.app.device,
       isCollapse: state => state.app.theNav.isCollapse
     }),
+    activeRouter() {
+      let activeRouter = this.$route.path || "/";
+      console.log("当前路由页码", activeRouter);
+      // debugger;
+      return activeRouter;
+    },
     currentRouters() {
       let currentRouter = this.$router.options.routes;
       return currentRouter;
@@ -60,9 +68,7 @@ export default {
       fixedHeader: false
     };
   },
-  mounted() {
-    // console.log(this.currentRouters);
-  }
+  mounted() {}
 };
 </script>
 
@@ -75,7 +81,6 @@ export default {
   .main-container
     margin-left 220px
     transition-duration .3s
-    padding 20px
   // 迷你侧边栏
   .the-nav-min
     width 65px

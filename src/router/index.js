@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 12:47:55
- * @LastEditTime: 2021-03-07 12:03:12
+ * @LastEditTime: 2021-03-07 23:56:08
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/router/index.js
@@ -14,10 +14,9 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "主页",
     component: layout,
-    icon: "el-icon-eleme",
     redirect: "/home",
+    meta: { title: "主页", icon: "el-icon-house" },
     children: [
       {
         path: "home",
@@ -28,34 +27,36 @@ const routes = [
   },
   {
     path: "/file",
-    name: "文档",
     component: layout,
     icon: "el-icon-document",
     redirect: "/file/index",
+    meta: { title: "文档", icon: "el-icon-document" },
     children: [
       {
         path: "index",
-        name: "file",
+        name: "File",
         component: () => import("../views/File")
       }
     ]
   },
   {
-    path: "/components",
-    name: "组件",
-    icon: "el-icon-info",
+    path: "/about",
     component: layout,
-    redirect: "/about/index",
+    icon: "el-icon-help",
+    meta: { title: "关于", icon: "el-icon-help" },
+    redirect: "/about/table",
     children: [
       {
-        path: "index",
-        name: "表格",
-        component: () => import("../views/about/index.vue")
+        path: "table",
+        name: "Table",
+        meta: { title: "表格", icon: "el-icon-s-data" },
+        component: () => import("../views/about/Table.vue")
       },
       {
-        path: "abc",
-        name: "ABC",
-        component: () => import("../views/about/abc.vue")
+        path: "gitHub",
+        name: "GitHub",
+        meta: { title: "表格", icon: "el-icon-info" },
+        component: () => import("../views/about/GitHub.vue")
       }
     ]
   },
