@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-01-30 23:53:03
- * @LastEditTime: 2021-02-18 18:34:31
+ * @LastEditTime: 2021-03-07 12:07:20
  * @LastEditors: Please set LastEditors
  * @Description: layout 布局结构
  * @FilePath: /vue-admin-template/src/layout/index.vue
@@ -75,6 +75,7 @@ export default {
   .main-container
     margin-left 220px
     transition-duration .3s
+    padding 20px
   // 迷你侧边栏
   .the-nav-min
     width 65px

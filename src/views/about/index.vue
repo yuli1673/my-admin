@@ -1,15 +1,19 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-12 12:47:55
- * @LastEditTime: 2021-02-23 23:57:26
+ * @LastEditTime: 2021-03-07 18:20:36
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/views/About.vue
 -->
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
-    <the-table :table-data="tableData" :columns="columns" :operates="operates">
+    <the-table
+      v-on="{ changePage, refresh, search }"
+      :table-data="tableData"
+      :columns="columns"
+      :operates="operates"
+    >
       <template #default="{row}">
         <div>
           {{ row }}
@@ -28,7 +32,7 @@ export default {
     return {
       tableData: [
         {
-          a: "123",
+          a: 1,
           b: 321,
           c: { c: 321 }
         }
@@ -37,18 +41,18 @@ export default {
         {
           prop: "a",
           label: "a",
-          minWidth: "500",
-          type: "tag"
+          minWidth: "400",
+          component: "tag"
         },
         {
           prop: "b",
           label: "b",
-          minWidth: "500"
+          minWidth: "400"
         },
         {
           prop: "c",
           label: "c",
-          type: "slot"
+          component: "slot"
         }
       ],
       operates: {
@@ -69,6 +73,25 @@ export default {
   methods: {
     fun1(index, row) {
       console.log(index, row);
+    },
+    // 改变页码
+    changePage() {},
+    // 刷新表单
+    refresh() {
+      this.tableData.splice(0, this.tableData.length);
+      setTimeout(() => {
+        this.tableData = [
+          {
+            a: 1,
+            b: 111,
+            c: { c: 111 }
+          }
+        ];
+      }, 2 * 1000);
+    },
+    // 获取检索后的数据
+    search() {
+      this.refresh();
     }
   }
 };

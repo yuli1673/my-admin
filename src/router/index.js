@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 12:47:55
- * @LastEditTime: 2021-02-28 16:50:10
+ * @LastEditTime: 2021-03-07 12:03:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/router/index.js
@@ -41,19 +41,18 @@ const routes = [
     ]
   },
   {
-    path: "/about",
-    name: "About",
+    path: "/components",
+    name: "组件",
     icon: "el-icon-info",
     component: layout,
     redirect: "/about/index",
     children: [
       {
         path: "index",
-        name: "forAbout",
+        name: "表格",
         component: () => import("../views/about/index.vue")
       },
       {
-        hidden: true,
         path: "abc",
         name: "ABC",
         component: () => import("../views/about/abc.vue")

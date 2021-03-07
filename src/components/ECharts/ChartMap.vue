@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-28 14:22:08
- * @LastEditTime: 2021-03-01 01:36:01
+ * @LastEditTime: 2021-03-07 10:36:58
  * @LastEditors: Please set LastEditors
  * @Description: 地图
  * @FilePath: /my-admin/src/components/ECharts/ChartMap.vue
@@ -27,41 +27,85 @@ export default {
     return {
       myChart: null,
       option: {
+        backgroundColor: "#666",
+        // textStyle: {
+        //   color: "#fff"
+        // },
         title: {
-          text: "全国主要城市空气质量 - 百度地图",
-          subtext: "data from PM25.in",
-          sublink: "http://www.pm25.in",
-          left: "center"
+          text: "分布 - 地图",
+          textStyle: {
+            color: "#fff"
+          }
         },
         tooltip: {
           trigger: "item"
         },
         geo: {
+          show: true,
           map: "china",
-          zoom: 1
+          label: {
+            show: true,
+            emphasis: {
+              show: true,
+              color: "#a6c84c"
+            }
+          },
+          itemStyle: {
+            normal: {
+              areaColor: "#323c48",
+              borderColor: "#404a59"
+            },
+            emphasis: {
+              areaColor: "#2a333d"
+            }
+          },
+          roam: true,
+          zoom: 1.2
         },
         series: [
           {
-            name: "pm2.5",
+            // name: "pm2.5",
             coordinateSystem: "geo",
             type: "scatter",
             data: [
-              {
-                name: "岳阳",
-                value: [113.09, 29.37, 10]
-              }
-            ]
+              { name: "佛山", value: [113.11, 23.05], content: "佛山无影脚" },
+              { name: "合肥", value: [117.29, 32.0581], content: "合肥一家人" }
+            ],
+            itemStyle: {
+              color: "#a6c84c",
+              shadowBlur: 10,
+              shadowColor: "#a6c84c"
+            },
+            label: {
+              formatter: "{b}",
+              position: "right",
+              show: true
+            }
           },
           {
-            name: "Top 5",
+            // name: "Top 5",
             coordinateSystem: "geo",
             type: "effectScatter",
             data: [
               {
                 name: "衢州",
-                value: [118.88, 28.97, 9]
+                value: [118.88, 28.97],
+                content: "鸡头，兔头，鱼头"
               }
-            ]
+            ],
+            symbolSize: 24,
+            label: {
+              normal: {
+                formatter: "{b}",
+                position: "right",
+                show: true
+              }
+            },
+            itemStyle: {
+              color: "#a6c84c",
+              shadowBlur: 10,
+              shadowColor: "#fff"
+            }
           }
         ]
       }
@@ -94,6 +138,5 @@ export default {
 
 <style lang="stylus" scoped>
 .chart-map
-  background-color white
-  height 500px
+  height 666px
 </style>
