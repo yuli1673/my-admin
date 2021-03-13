@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-01-30 23:53:03
- * @LastEditTime: 2021-03-08 00:44:35
+ * @LastEditTime: 2021-03-13 23:44:27
  * @LastEditors: Please set LastEditors
  * @Description: layout 布局结构
  * @FilePath: /vue-admin-template/src/layout/index.vue
@@ -22,7 +22,7 @@
       <!-- <the-header :class="{ 'fixed-header': fixedHeader }"/> -->
       <!-- </div> -->
       <!-- 子路由 主体 -->
-      <the-main />
+      <the-router />
     </div>
   </div>
 </template>
@@ -34,7 +34,7 @@ export default {
   name: "Layout",
   components: {
     // TheHeader: () => import("./components/TheHeader"),
-    TheMain: () => import("./components/TheMain"),
+    TheRouter: () => import("@/components/TheRouter"),
     TheNav: () => import("@/components/theNav/index")
   },
   mixins: [resizeHandler],
@@ -50,7 +50,7 @@ export default {
       return activeRouter;
     },
     currentRouters() {
-      let currentRouter = this.$router.options.routes;
+      let currentRouter = this.$router.options.routes.filter(v => !v.hidden);
       return currentRouter;
     }
   },

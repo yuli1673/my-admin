@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 12:47:55
- * @LastEditTime: 2021-03-07 23:56:08
+ * @LastEditTime: 2021-03-13 23:47:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/router/index.js
@@ -26,16 +26,16 @@ const routes = [
     ]
   },
   {
-    path: "/file",
+    path: "/share",
     component: layout,
     icon: "el-icon-document",
-    redirect: "/file/index",
-    meta: { title: "文档", icon: "el-icon-document" },
+    redirect: "/share/index",
+    meta: { title: "分享", icon: "el-icon-share" },
     children: [
       {
         path: "index",
-        name: "File",
-        component: () => import("../views/File")
+        name: "Share",
+        component: () => import("../views/Share")
       }
     ]
   },
@@ -43,20 +43,51 @@ const routes = [
     path: "/about",
     component: layout,
     icon: "el-icon-help",
-    meta: { title: "关于", icon: "el-icon-help" },
+    meta: { title: "关于复合组件", icon: "el-icon-help" },
     redirect: "/about/table",
     children: [
       {
-        path: "table",
-        name: "Table",
+        path: "theTable",
+        name: "TheTable",
         meta: { title: "表格", icon: "el-icon-s-data" },
-        component: () => import("../views/about/Table.vue")
+        component: () => import("../views/about/TheTable.vue")
       },
       {
-        path: "gitHub",
-        name: "GitHub",
-        meta: { title: "表格", icon: "el-icon-info" },
-        component: () => import("../views/about/GitHub.vue")
+        path: "theRouterNext",
+        name: "TheRouterNext",
+        meta: { title: "嵌套路由", icon: "el-icon-guide" },
+        component: () => import("../views/about/TheRouterNext.vue"),
+        redirect: "/about/theRouterNext/menu-1",
+        children: [
+          {
+            path: "menu-1",
+            name: "Menu-1",
+            meta: { title: "菜单-1" },
+            component: () => import("../views/about/menu/menu-1"),
+            children: [
+              {
+                path: "menu-1-1",
+                name: "Menu-1-1",
+                meta: { title: "菜单-1-1" },
+                component: () =>
+                  import("../views/about/menu/menu-1/Menu-1-1.vue")
+              },
+              {
+                path: "menu-1-2",
+                name: "Menu-1-2",
+                meta: { title: "菜单-1-2" },
+                component: () =>
+                  import("../views/about/menu/menu-1/Menu-1-2.vue")
+              }
+            ]
+          },
+          {
+            path: "menu-2",
+            name: "Menu-2",
+            meta: { title: "菜单-2" },
+            component: () => import("../views/about/menu/Menu-2")
+          }
+        ]
       }
     ]
   },

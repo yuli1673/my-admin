@@ -1,10 +1,9 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-12 22:18:58
- * @LastEditTime: 2021-03-08 00:59:19
+ * @LastEditTime: 2021-03-11 00:23:18
  * @LastEditors: Please set LastEditors
- * @Description: 这里注意不能使用div包裹，因为menu的标签很多是li，不能使用别的标签，所以使用component
-    遍历的每一项 路由子集
+ * @Description: 这里注意不能使用div包裹，因为menu的标签很多是li，不能使用别的标签
  * @FilePath: /my-admin/src/layout/components/theNav/NavItem.vue
 -->
 <template>
@@ -66,6 +65,7 @@ export default {
     hasOnlyChildren() {
       return function(router = {}) {
         if ("children" in router && router.children.length > 1) return false;
+        // 有 hidden 情况
         return true;
       };
     },

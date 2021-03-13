@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-12 22:09:34
- * @LastEditTime: 2021-03-07 23:54:51
+ * @LastEditTime: 2021-03-13 13:53:09
  * @LastEditors: Please set LastEditors
  * @Description: 左侧导航栏
  * @FilePath: /my-admin/src/layout/components/TheNav.vue
@@ -107,6 +107,6 @@ export default {
   width 220px
   overflow hidden
   transition-duration 0.3s
-.the-nav-menu
-  border none
+  .the-nav-menu
+    border none
 </style>
