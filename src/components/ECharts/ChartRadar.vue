@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-27 23:09:57
- * @LastEditTime: 2021-02-28 21:52:38
+ * @LastEditTime: 2021-03-14 00:05:27
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/components/ECharts/ChartRadar.vue
@@ -13,7 +13,7 @@
 
 <script>
 import * as echarts from "echarts";
-import resize from "@/mixin/ResizeEChart";
+import resize from "@/mixin/ResizeEchart";
 
 export default {
   mixins: [resize],

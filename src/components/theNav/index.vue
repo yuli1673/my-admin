@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-12 22:09:34
- * @LastEditTime: 2021-03-13 13:53:09
+ * @LastEditTime: 2021-03-14 01:12:17
  * @LastEditors: Please set LastEditors
  * @Description: 左侧导航栏
  * @FilePath: /my-admin/src/layout/components/TheNav.vue
@@ -80,7 +80,6 @@ export default {
       let { path = "/", redirectedFrom = "/" } = this.$route;
       // 判断是否有重定向
       if (redirectedFrom) path = redirectedFrom;
-      // console.log("当前路由", path);
       return path;
     }
   },

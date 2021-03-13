@@ -13,7 +13,7 @@
 
 <script>
 import * as echarts from "echarts";
-import resize from "@/mixin/ResizeEChart";
+import resize from "@/mixin/ResizeEchart";
 
 export default {
   mixins: [resize],
