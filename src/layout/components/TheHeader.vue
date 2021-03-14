@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-12 22:07:34
- * @LastEditTime: 2021-03-14 10:37:15
+ * @LastEditTime: 2021-03-14 10:43:20
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/layout/TheHeader.vue
@@ -40,32 +40,15 @@
 <script>
 export default {
   data() {
-    return {
-      breadcrumb: []
-    };
+    return {};
   },
-  watch: {
-    $route: {
-      handler(route) {
-        this.getBreadcrumb(route);
-      },
-      immediate: true
+  computed: {
+    breadcrumb() {
+      return this.$route.matched.filter(v => v.meta.title);
     }
   },
-  methods: {
-    // 获取面包屑
-    getBreadcrumb(route) {
-      this.breadcrumb.length = 0;
-      let _breadcrumb = route.matched.filter(v => v.meta.title);
-      // 没有一条有 /home
-      if (!_breadcrumb.some(v => v.path === "/home")) {
-        _breadcrumb = [{ path: "/home", meta: { title: "主页" } }].concat(
-          _breadcrumb
-        );
-      }
-      this.breadcrumb = _breadcrumb;
-    }
-  }
+  watch: {},
+  methods: {}
 };
 </script>
 
