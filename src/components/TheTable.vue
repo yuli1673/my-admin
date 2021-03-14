@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-21 22:25:14
- * @LastEditTime: 2021-03-07 18:23:33
+ * @LastEditTime: 2021-03-14 12:34:29
  * @LastEditors: Please set LastEditors
  * @Description: 表格
  * @FilePath: /my-admin/src/components/TheTable.vue
@@ -9,30 +9,33 @@
 <template>
   <div class="the-table">
     <header class="header">
-      <el-button
-        icon="el-icon-search"
-        @click="isSearch = !isSearch"
-      ></el-button>
-      <el-button
-        class="header-button"
-        icon="el-icon-refresh"
-        @click="refresh"
-      ></el-button>
-      <!-- 塞选表格显示的表头 -->
-      <el-dropdown>
-        <span class="el-dropdown-link">
-          <el-button icon="el-icon-menu"></el-button>
-        </span>
-        <el-dropdown-menu slot="dropdown">
-          <el-checkbox-group @change="changeCheckBox" v-model="checkboxArr">
-            <el-dropdown-item v-for="column in columns" :key="column.prop">
-              <el-checkbox :label="column.label" :disabled="column.disabled">
-                {{ column.label }}
-              </el-checkbox>
-            </el-dropdown-item>
-          </el-checkbox-group>
-        </el-dropdown-menu>
-      </el-dropdown>
+      <el-button-group>
+        <el-button
+          icon="el-icon-search"
+          @click="isSearch = !isSearch"
+          type="info"
+        ></el-button>
+        <el-button
+          class="header-button"
+          icon="el-icon-refresh"
+          @click="refresh"
+        ></el-button>
+        <!-- 塞选表格显示的表头 -->
+        <el-dropdown>
+          <span class="el-dropdown-link">
+            <el-button icon="el-icon-menu"></el-button>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-checkbox-group @change="changeCheckBox" v-model="checkboxArr">
+              <el-dropdown-item v-for="column in columns" :key="column.prop">
+                <el-checkbox :label="column.label" :disabled="column.disabled">
+                  {{ column.label }}
+                </el-checkbox>
+              </el-dropdown-item>
+            </el-checkbox-group>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </el-button-group>
       <!-- 搜索菜单 -->
       <transition name="el-fade-in-linear">
         <the-form
@@ -250,8 +253,6 @@ export default {
 .the-table
   .header
     text-align right
-    .header-button
-      margin 0
   .pagination
     text-align center
 </style>

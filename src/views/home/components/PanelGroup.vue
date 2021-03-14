@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-18 16:59:33
- * @LastEditTime: 2021-02-27 16:17:37
+ * @LastEditTime: 2021-03-14 12:48:37
  * @LastEditors: Please set LastEditors
  * @Description: 面板
  * @FilePath: /my-admin/src/views/home/components/ThePanelGroup.vue
@@ -39,7 +39,7 @@ export default {
           src: require("@/assets/logo.png")
         },
         {
-          label: "Purchases",
+          label: "Purchacacawcaases",
           value: "839204",
           src: require("@/assets/logo.png")
         },
@@ -70,19 +70,21 @@ export default {
   justify-content space-between
   .item
     padding 10px
-    margin 10px 0
     background-color white
     display flex
     align-items center
     justify-content space-between
-    transition-duration 0.5s
+    transition-duration 0.3s
     cursor pointer
     width 20%
+    border-radius 10px
     &:hover
-      box-shadow 5px 8px 30px #ccc
+      box-shadow 3px 3px 50px #E6A23C
       transform translateY(-5px)
-      background-color rgba(0, 0, 0, 0.5)
+      background-color #E6A23C
       color white
+    &:active
+      transform translateY(0)
     .item-img
       width 80px
       height 80px

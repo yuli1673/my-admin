@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-14 13:10:57
- * @LastEditTime: 2021-02-28 00:13:39
+ * @LastEditTime: 2021-03-14 11:42:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/layout/components/theNav/Logo.vue
@@ -41,7 +41,7 @@ export default {
   display flex
   justify-content center
   align-items center
-  height 50px
+  height 60px
   cursor pointer
   .logo-img
     height 40px

@@ -1,18 +1,16 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-12 18:39:57
- * @LastEditTime: 2021-03-13 23:43:39
+ * @LastEditTime: 2021-03-14 12:41:57
  * @LastEditors: Please set LastEditors
  * @Description: 主体导航路由
  * @FilePath: /my-admin/src/layout/TheMain.vue
 -->
 
 <template>
-  <section class="the-main">
-    <transition name="el-fade-in-linear" mode="out-in">
-      <router-view />
-    </transition>
-  </section>
+  <transition name="el-fade-in-linear" mode="out-in">
+    <router-view />
+  </transition>
 </template>
 
 <script>
@@ -22,9 +20,4 @@ export default {
 };
 </script>
 
-<style scoped lang="stylus">
-.the-main
-  width 100%
-  position relative
-  overflow hidden
-</style>
+<style scoped lang="stylus"></style>

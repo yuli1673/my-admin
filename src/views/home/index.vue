@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-12 12:47:55
- * @LastEditTime: 2021-03-07 23:47:08
+ * @LastEditTime: 2021-03-14 12:42:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/views/Home.vue
@@ -22,12 +22,10 @@
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
   name: "Home",
   components: {
-    // HelloWorld
     PanelGroup: () => import("./components/PanelGroup"),
     ChartLine: () => import("@/components/ECharts/ChartLine"),
     ChartPie: () => import("@/components/ECharts/ChartPie.vue"),
@@ -47,7 +45,6 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .home
-  padding 20px
   background-color #f0f2f5
   .chart-line, .chart-map
     margin 30px 0

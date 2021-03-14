@@ -1,13 +1,14 @@
 <!--
  * @Author: josen
  * @Date: 2021-01-30 23:53:03
- * @LastEditTime: 2021-03-14 10:07:33
+ * @LastEditTime: 2021-03-14 12:42:29
  * @LastEditors: Please set LastEditors
  * @Description: layout 布局结构
  * @FilePath: /vue-admin-template/src/layout/index.vue
 -->
 <template>
   <div class="layout">
+    <!-- 侧边栏 -->
     <the-nav
       class="the-nav"
       :currentRouters="currentRouters"
@@ -16,11 +17,9 @@
       :class="{ 'the-nav-min': isCollapse }"
       :defaultActive="activeRouter"
     />
-    <!-- :defaultActive="$routers" -->
     <div class="main-container">
-      <!-- <div :class="{ 'fixed-header': fixedHeader }"> -->
-      <the-header />
-      <!-- </div> -->
+      <!-- 头部 -->
+      <the-header class="fixed-header" />
       <!-- 子路由 主体 -->
       <the-router class="the-router" />
     </div>
@@ -80,8 +79,12 @@ export default {
   .main-container
     margin-left 220px
     transition-duration .3s
+    .fixed-header
+      position sticky
+      top 0
+      z-index 1
     .the-router
-      background-color white
+      padding 10px
   // 迷你侧边栏
   .the-nav-min
     width 65px
