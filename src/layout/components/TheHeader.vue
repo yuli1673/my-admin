@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-12 22:07:34
- * @LastEditTime: 2021-03-14 10:35:34
+ * @LastEditTime: 2021-03-14 10:37:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/layout/TheHeader.vue
@@ -14,7 +14,7 @@
         :key="item.path"
         :to="{ path: item.path }"
       >
-        {{ item.meta.title }}>>>{{ item.path }}
+        {{ item.meta.title }}
       </el-breadcrumb-item>
     </el-breadcrumb>
     <!-- 头部右侧内容 -->
