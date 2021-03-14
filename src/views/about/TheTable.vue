@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-02-12 12:47:55
+ * @LastEditTime: 2021-03-14 10:34:14
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: /my-admin/src/views/about/TheTable.vue
+-->
 <template>
   <div class="about">
     <the-table

@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-12 22:07:34
- * @LastEditTime: 2021-03-14 01:27:46
+ * @LastEditTime: 2021-03-14 10:32:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/layout/TheHeader.vue
@@ -14,7 +14,7 @@
         :key="item.path"
         :to="{ path: item.path }"
       >
-        {{ item.meta.title }}
+        {{ item.meta.title }}>>>{{ item.path }}
       </el-breadcrumb-item>
     </el-breadcrumb>
     <!-- 头部右侧内容 -->
@@ -56,7 +56,7 @@ export default {
     // 获取面包屑
     getBreadcrumb(route) {
       this.breadcrumb.length = 0;
-      let _breadcrumb = route.matched.filter(v => v.meta);
+      let _breadcrumb = route.matched.filter(v => v.meta.title);
       // 没有一条有 /home
       if (!_breadcrumb.some(v => v.path === "/home")) {
         _breadcrumb = [{ path: "/home", meta: { title: "主页" } }].concat(
@@ -76,6 +76,7 @@ export default {
   display flex
   justify-content space-between
   align-items center
+  border-bottom 2px solid #eee
   .right-menu
     ::v-deep .el-avatar
       vertical-align middle

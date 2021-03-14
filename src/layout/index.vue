@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-01-30 23:53:03
- * @LastEditTime: 2021-03-14 01:12:56
+ * @LastEditTime: 2021-03-14 10:07:33
  * @LastEditors: Please set LastEditors
  * @Description: layout 布局结构
  * @FilePath: /vue-admin-template/src/layout/index.vue
@@ -74,14 +74,12 @@ export default {
 <style lang="stylus" scoped>
 .layout
   position relative
-  background-color #eee
   .the-nav
     background-color #545c64
     z-index: 1;
   .main-container
     margin-left 220px
     transition-duration .3s
-    background-color #eee
     .the-router
       background-color white
   // 迷你侧边栏

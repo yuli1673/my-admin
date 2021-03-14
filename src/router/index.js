@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 12:47:55
- * @LastEditTime: 2021-03-13 23:47:04
+ * @LastEditTime: 2021-03-14 10:33:11
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/router/index.js
@@ -44,7 +44,7 @@ const routes = [
     component: layout,
     icon: "el-icon-help",
     meta: { title: "关于复合组件", icon: "el-icon-help" },
-    redirect: "/about/table",
+    redirect: "/about/theTable",
     children: [
       {
         path: "theTable",
@@ -57,7 +57,6 @@ const routes = [
         name: "TheRouterNext",
         meta: { title: "嵌套路由", icon: "el-icon-guide" },
         component: () => import("../views/about/TheRouterNext.vue"),
-        redirect: "/about/theRouterNext/menu-1",
         children: [
           {
             path: "menu-1",
