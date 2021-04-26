@@ -1,7 +1,7 @@
 /*
  * @Author: josen
  * @Date: 2021-02-14 23:17:45
- * @LastEditTime: 2021-02-15 19:08:05
+ * @LastEditTime: 2021-02-27 23:45:55
  * @LastEditors: Please set LastEditors
  * @Description: 监听屏幕的大小情况
     use $_ for mixins properties
@@ -16,7 +16,9 @@ const WIDTH = 996;
 
 export default {
   watch: {
-    $route() {}
+    $route() {
+      this.$_resizeHandler();
+    }
   },
   // 创建监听
   beforeMount() {
@@ -28,7 +30,7 @@ export default {
   },
   mounted() {
     const isMobile = this.$_isMobile();
-    store.commit("app/TOGGLE_DEVICE", isMobile ? "mobile" : "desktop");
+    store.commit("app/TOGGLE_DEVICE", isMobile ? "mobile" : "pc");
     store.commit("app/SET_COLLAPSE_NAV", isMobile);
   },
   methods: {
@@ -46,8 +48,9 @@ export default {
     $_resizeHandler() {
       if (!document.hidden) {
         const isMobile = this.$_isMobile();
-        store.commit("app/TOGGLE_DEVICE", isMobile ? "mobile" : "desktop");
-        store.commit("app/SET_COLLAPSE_NAV", isMobile);
+        store.commit("app/TOGGLE_DEVICE", isMobile ? "mobile" : "pc");
+        // 移动端隐藏 pc可以不隐藏
+        if (isMobile) store.commit("app/SET_COLLAPSE_NAV", true);
       }
     }
   }

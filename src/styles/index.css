@@ -1,14 +1,12 @@
 /*
  * @Author: josen
  * @Date: 2021-02-12 14:00:24
- * @LastEditTime: 2021-02-12 21:31:05
+ * @LastEditTime: 2021-02-28 22:57:07
  * @LastEditors: Please set LastEditors
  * @Description: 全局引入的文件
  * @FilePath: /my-admin/src/styles/index.css
  */
-:rout {
-  --bg: #2d3a4b;
-}
 body {
   margin: 0;
+  min-width: 996px;
 }

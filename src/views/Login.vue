@@ -1,54 +1,65 @@
 <!--
  * @Author: josen
  * @Date: 2021-02-12 18:44:14
- * @LastEditTime: 2021-02-12 22:06:29
+ * @LastEditTime: 2021-02-16 22:28:54
  * @LastEditors: Please set LastEditors
  * @Description: 登入页面
  * @FilePath: /my-admin/src/views/Login.vue
 -->
 <template>
   <div class="login">
-    <el-form class="login-form" :model="loginForm">
+    <el-form class="login-form" :model="form">
       <el-form-item>
-        <h3 class="login-title">Login Form</h3>
+        <h2 class="login-title">Login Form</h2>
       </el-form-item>
       <!-- 账号 -->
       <el-form-item class="form-item" label="">
         <el-input
-          v-model="loginForm.acount"
+          class="input"
+          v-model="form.acount"
           placeholder="请输入账号"
         ></el-input>
       </el-form-item>
       <!-- 密码 -->
       <el-form-item class="form-item" label="">
         <el-input
-          v-model="loginForm.password"
+          v-model="form.password"
           placeholder="请输入密码"
           show-password
         ></el-input>
       </el-form-item>
       <!-- 按钮 -->
-      <el-form-item>
-        <el-button type="primary" @click="onSubmit" class="">登入</el-button>
+      <el-form-item class="form-item">
+        <el-button type="primary" @click="onSubmit" class="login-button">
+          登入
+        </el-button>
+        <span class="login-notice">
+          username: admin
+        </span>
+        <span class="login-notice">
+          password: any
+        </span>
       </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script>
+import { setToken } from "@/utils/token";
 export default {
   data() {
     return {
-      loginForm: {
-        acount: "",
-        password: ""
+      form: {
+        acount: "admin",
+        password: "password"
       }
     };
   },
   methods: {
     onSubmit() {
-      sessionStorage.setItem("token", 123);
-      this.$router.push("/home");
+      setToken(123);
+      this.$store.commit("user/SET_NAME", this.form.acount);
+      this.$router.push("/");
     }
   }
 };
@@ -56,16 +67,22 @@ export default {
 
 <style lang="stylus" scoped>
 .login
+  color white
   background-color #2d3a4b
   height 100vh
   display flex
   justify-content center
   align-items center
   .login-form
-    width 500px
+    width 40%
+    min-width 300px
+    max-width 500px
     .login-title
       margin 0
-      color white
+      text-align center
     .form-item
-      position relative
+      .login-button
+        width 100%
+      .login-notice
+        margin-right 20px
 </style>
