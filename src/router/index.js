@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 12:47:55
- * @LastEditTime: 2021-03-14 12:32:11
+ * @LastEditTime: 2021-04-26 21:50:24
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/router/index.js
@@ -87,6 +87,12 @@ const routes = [
             component: () => import("../views/mixComponent/menu/Menu-2")
           }
         ]
+      },
+      {
+        path: "g6",
+        name: "G6",
+        meta: { title: "G6", icon: "el-icon-data-analysis" },
+        component: () => import("@/views/G6.vue")
       }
     ]
   },
