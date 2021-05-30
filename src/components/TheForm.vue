@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-03-07 12:08:31
- * @LastEditTime: 2021-03-07 18:22:38
+ * @LastEditTime: 2021-05-30 17:21:15
  * @LastEditors: Please set LastEditors
  * @Description: 表单
  * @FilePath: /my-admin/src/components/TheForm.vue
@@ -10,16 +10,36 @@
   <el-form
     class="the-form"
     ref="form"
-    inline
+    :inline="inline"
     :model="form"
     :label-width="labelWidth + 'px'"
   >
     <el-form-item
       class="form_item"
-      v-for="title in field"
+      v-for="title in titles"
       :key="title.prop"
-      :label="title.label + ' : '"
+      :style="{ width: title.width + 'px' }"
     >
+      <!-- 
+        注意事项悬浮提示 
+        如果标签宽度或者标签内容一个没有，则不显示提示信息
+      -->
+      <template #label v-if="labelWidth && title.label">
+        <!-- 有,悬浮提示 -->
+        <span v-if="title.tooltip">
+          <el-tooltip :content="title.tooltip" effect="dark">
+            <span>
+              <i :class="title.icon"></i>
+              {{ title.label }}:
+            </span>
+          </el-tooltip>
+        </span>
+        <!-- 没有,悬浮提示 -->
+        <span v-else>
+          <i :class="title.icon"></i>
+          <span> {{ title.label }}: </span>
+        </span>
+      </template>
       <!-- 插槽 -->
       <slot class="item_component" v-if="title.component === 'slot'"></slot>
       <!-- 单选框 -->
@@ -69,9 +89,7 @@
     </el-form-item>
     <!-- 操作按钮 -->
     <el-form-item>
-      <el-button icon="el-icon-search" @click="submit" type="primary">
-        确定
-      </el-button>
+      <el-button @click="submit" type="primary"> 确定 </el-button>
     </el-form-item>
   </el-form>
 </template>
@@ -79,15 +97,15 @@
 <script>
 export default {
   props: {
+    inline: {
+      type: Boolean,
+      default: false
+    },
     labelWidth: {
       type: Number,
       default: () => 80
     },
-    /**
-     * @description: 表单数据
-     * @param {*}
-     * @return {*}
-     */
+    // *表单数据
     form: {
       type: Object,
       default: () => ({}),
@@ -98,7 +116,7 @@ export default {
      * @param {*}
      * @return {*}
      */
-    field: {
+    titles: {
       type: Array,
       default: () => [],
       require: true
@@ -116,7 +134,4 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-.the-form
-  text-align left
-</style>
+<style lang="stylus" scoped></style>

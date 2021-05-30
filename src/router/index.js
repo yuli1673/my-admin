@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-12 12:47:55
- * @LastEditTime: 2021-04-26 21:50:24
+ * @LastEditTime: 2021-05-30 17:42:59
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/router/index.js
@@ -44,39 +44,56 @@ const routes = [
     component: layout,
     icon: "el-icon-help",
     meta: { title: "混合组件", icon: "el-icon-help" },
-    redirect: "/mixComponent/theTable",
+    redirect: "/mixComponent/ExampleTable",
     children: [
       {
-        path: "theTable",
-        name: "TheTable",
+        path: "exampleTable",
+        name: "ExampleTable",
         meta: { title: "表格", icon: "el-icon-s-data" },
-        component: () => import("../views/mixComponent/TheTable.vue")
+        component: () => import("@/views/mixComponent/ExampleTable")
+      },
+      {
+        path: "exampleForm",
+        name: "ExampleForm",
+        meta: { title: "表单", icon: "el-icon-tickets" },
+        component: () => import("@/views/mixComponent/ExampleForm")
+      },
+      {
+        path: "exampleTree",
+        name: "ExampleTree",
+        meta: { title: "关系图", icon: "el-icon-data-analysis" },
+        component: () => import("@/views/mixComponent/ExampleTree")
       },
       {
         path: "theRouterNext",
         name: "TheRouterNext",
         meta: { title: "嵌套路由", icon: "el-icon-guide" },
-        component: () => import("../views/mixComponent/TheRouterNext.vue"),
+        component: () => import("@/views/mixComponent/TheRouterNext"),
         children: [
           {
             path: "menu-1",
             name: "Menu-1",
             meta: { title: "菜单-1" },
-            component: () => import("../views/mixComponent/menu/menu-1"),
+            component: () =>
+              import("../views/mixComponent/TheRouterNext/menu/menu-1"),
             children: [
               {
                 path: "menu-1-1",
                 name: "Menu-1-1",
                 meta: { title: "菜单-1-1" },
                 component: () =>
-                  import("../views/mixComponent/menu/menu-1/Menu-1-1.vue")
+                  import(
+                    "@/views/mixComponent/TheRouterNext/menu/menu-1/Menu-1-1"
+                  )
               },
               {
                 path: "menu-1-2",
                 name: "Menu-1-2",
                 meta: { title: "菜单-1-2" },
                 component: () =>
-                  import("../views/mixComponent/menu/menu-1/Menu-1-2.vue")
+                  import(
+                    "@/views/mixComponent/TheRouterNext/menu/menu-1/Menu-1-2"
+                  )
               }
             ]
           },
@@ -84,15 +101,10 @@ const routes = [
             path: "menu-2",
             name: "Menu-2",
             meta: { title: "菜单-2" },
-            component: () => import("../views/mixComponent/menu/Menu-2")
+            component: () =>
+              import("@/views/mixComponent/TheRouterNext/menu/Menu-2")
           }
         ]
-      },
-      {
-        path: "g6",
-        name: "G6",
-        meta: { title: "G6", icon: "el-icon-data-analysis" },
-        component: () => import("@/views/G6.vue")
       }
     ]
   },
@@ -100,7 +112,7 @@ const routes = [
     hidden: true,
     path: "/login",
     name: "Login",
-    component: () => import("../views/Login.vue")
+    component: () => import("@/views/Login.vue")
   },
   {
     path: "/404",

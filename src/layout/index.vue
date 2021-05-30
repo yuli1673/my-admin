@@ -1,7 +1,7 @@
 <!--
  * @Author: josen
  * @Date: 2021-01-30 23:53:03
- * @LastEditTime: 2021-03-14 12:42:29
+ * @LastEditTime: 2021-05-21 00:26:47
  * @LastEditors: Please set LastEditors
  * @Description: layout 布局结构
  * @FilePath: /vue-admin-template/src/layout/index.vue
@@ -34,7 +34,7 @@ export default {
   components: {
     TheHeader: () => import("./components/TheHeader"),
     TheRouter: () => import("@/components/TheRouter"),
-    TheNav: () => import("@/components/theNav/index")
+    TheNav: () => import("@/components/TheNav/index")
   },
   mixins: [resizeHandler],
   computed: {
@@ -75,7 +75,7 @@ export default {
   position relative
   .the-nav
     background-color #545c64
-    z-index: 1;
+    z-index: 2;
   .main-container
     margin-left 220px
     transition-duration .3s

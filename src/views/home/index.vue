@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-12 12:47:55
- * @LastEditTime: 2021-03-14 12:42:54
+ * @LastEditTime: 2021-05-30 15:39:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /my-admin/src/views/Home.vue
@@ -31,7 +31,7 @@ export default {
     ChartPie: () => import("@/components/ECharts/ChartPie.vue"),
     ChartRadar: () => import("@/components/ECharts/ChartRadar.vue"),
     ChartBar: () => import("@/components/ECharts/ChartBar.vue"),
-    ChartMap: () => import("@/components/ECharts/ChartMap.vue")
+    ChartMap: () => import("@/components/ECharts/ChartMap")
   },
   data() {
     return {};
